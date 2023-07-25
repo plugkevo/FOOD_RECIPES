@@ -1,5 +1,6 @@
 package com.example.foodrecipes.adapter
 
+
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -12,14 +13,22 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.foodrecipes.R
-import com.example.foodrecipes.model.ModelFilter
+import com.example.foodrecipes.activities.ModelFilter
 
-class FilterFoodAdapter(private val mContext: Context, private val items: List<ModelFilter>, private val onSelectData: onSelectData) :
+
+class FilterFoodAdapter(private val mContext: Context, private val items: List<ModelFilter>, private val onSelectdata: onSelectData) :
     RecyclerView.Adapter<FilterFoodAdapter.ViewHolder>() {
 
     interface onSelectData {
-        fun onSelected(modelMain: ModelFilter)
+
+
+        companion object {
+            fun onSelected(modelMain: ModelFilter) {
+
+            }
+        }
     }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.list_item_filter_food, parent, false)
@@ -31,7 +40,7 @@ class FilterFoodAdapter(private val mContext: Context, private val items: List<M
 
         //Get Image
         Glide.with(mContext)
-            .load(data.strMealThumb)
+            .load(data.strMealThumb) // retrieve the image from the data source
             .placeholder(R.drawable.ic_food_placeholder)
             .diskCacheStrategy(DiskCacheStrategy.ALL)
             .into(holder.imgThumb)
