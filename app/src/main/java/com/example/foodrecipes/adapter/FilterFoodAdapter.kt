@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.foodrecipes.R
-import com.example.foodrecipes.activities.ModelFilter
+import com.example.foodrecipes.model.ModelFilter
 
 
 class FilterFoodAdapter(private val mContext: Context, private val items: List<ModelFilter>, private val onSelectdata: onSelectData) :
